@@ -12,7 +12,7 @@
     <meta property="og:title" content="Moreira Tech — Engenharia de Qualidade e Estratégia de Risco" />
     <meta
       property="og:description"
-      content="Estratégia de qualidade baseada em risco, automação contínua, CI/CD com Quality Gates, performance, segurança e IA assistiva para decisões confiáveis de release."
+      content="Qualidade não começa no teste. Começa na decisão. Estratégia de qualidade baseada em risco, automação contínua, CI/CD e evidências reais."
     />
     <meta property="og:url" content="https://moreira-tech.com/" />
     <meta property="og:image" content="https://moreira-tech.com/assets/og.png" />
@@ -33,8 +33,8 @@
       </a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav id="site-nav" aria-label="Seções do site">
-        <a href="#fluxo">Abordagem</a>
-        <a href="#capacidades">Capacidades</a>
+        <a href="#problema">O Problema</a>
+        <a href="#abordagem">Abordagem</a>
         <a href="#case-qel">Case Flagship</a>
         <a href="#evidencias">Evidências</a>
         <a href="#contato">Contato</a>
@@ -42,37 +42,35 @@
     </header>
 
     <main id="conteudo">
+      <!-- 1. HERO -->
       <section class="hero" id="topo">
         <div class="hero-copy">
           <p class="eyebrow"><span></span> Engenharia de Qualidade &amp; Estratégia de Risco</p>
-          <h1>Qualidade como <em>Engenharia</em>, da análise de risco à decisão de release.</h1>
+          <h1>Qualidade não começa no teste. <em>Começa na decisão.</em></h1>
           <p class="hero-lead">
             A Moreira Tech conecta estratégia baseada em risco, automação contínua, CI/CD com Quality Gates,
-            performance, segurança e IA assistiva para transformar sinais técnicos em decisões de produto confiáveis e auditáveis.
+            performance, segurança e IA assistiva para transformar sinais técnicos em decisões de release confiáveis.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#case-qel">Conhecer o Case Flagship</a>
+            <a class="button primary" href="#case-qel">Conhecer o Quality Engineering Lab</a>
             <a
               class="button secondary"
-              href="https://carlosesmoreira07.github.io/quality-engineering-lab/"
-              target="_blank"
-              rel="noreferrer"
-            >Central de Evidências <span aria-hidden="true">↗</span></a>
-            <a
-              class="button tertiary"
-              href="https://github.com/carlosesmoreira07/quality-engineering-lab"
-              target="_blank"
-              rel="noreferrer"
-            >GitHub <span aria-hidden="true">↗</span></a>
+              href="#evidencias"
+            >Ver evidências reais</a>
           </div>
         </div>
 
-        <div class="decision-panel" aria-label="Fluxo resumido de Quality Engineering">
-          <div class="panel-topline"><span>release / decision</span><span class="live-dot">controle ativo</span></div>
+        <!-- Signature Motion Panel -->
+        <div class="decision-panel" aria-label="Painel iterativo de controle de qualidade">
+          <div class="panel-topline">
+            <span>RELEASE PIPELINE</span>
+            <span class="step-counter">01 / 04</span>
+            <span class="live-dot">SISTEMA ATIVO</span>
+          </div>
           <div class="decision-core">
-            <span class="decision-label">QUALITY GATE</span>
-            <strong>APROVADO</strong>
-            <p>Comportamento correto, riscos controlados e evidência técnica disponível.</p>
+            <span class="decision-label">RISK.DETECT()</span>
+            <strong class="text-amber">ANALISANDO RISCO</strong>
+            <p>Identificando impactos nas jornadas críticas de produto.</p>
           </div>
           <div class="signal-row">
             <span><i class="signal risk"></i> Risco</span>
@@ -82,91 +80,83 @@
         </div>
       </section>
 
-      <section class="challenge section" id="fluxo">
+      <!-- 2. THE PROBLEM -->
+      <section class="challenge section" id="problema">
         <div class="section-heading compact">
-          <p class="eyebrow">Abordagem de Engenharia</p>
-          <h2>Engenharia antes da automação.<br />Risco antes do código.</h2>
-          <p>Qualidade não é uma fase final nem um acúmulo de scripts. É a disciplina técnica de mapear riscos, criar controles determinísticos e gerar evidências acionáveis para decisões de release.</p>
+          <p class="eyebrow">O Problema do QA Tradicional</p>
+          <h2>Testar no final não protege o negócio.<br />Apenas descobre o prejuízo tarde demais.</h2>
+          <p>Muitas equipes ainda tratam testes como uma etapa de validação manual tardia. O resultado são suítes lentas, desorganizadas e desconectadas dos verdadeiros riscos de produção.</p>
         </div>
 
-        <ol class="quality-flow" aria-label="Fluxo de Quality Engineering">
-          <li><span>01</span><strong>Jira</strong><small>Demanda &amp; Requisitos</small></li>
-          <li><span>02</span><strong>Impacto</strong><small>IA assistiva</small></li>
-          <li><span>03</span><strong>Riscos</strong><small>Matriz de Prioridade</small></li>
-          <li><span>04</span><strong>Engenharia</strong><small>Implementação de testes</small></li>
-          <li><span>05</span><strong>Quality Gates</strong><small>Controles em CI/CD</small></li>
-          <li><span>06</span><strong>Evidências</strong><small>Sinais auditáveis</small></li>
-          <li><span>07</span><strong>Decisão</strong><small>Revisão humana</small></li>
-        </ol>
+        <div class="problem-grid">
+          <div class="problem-card">
+            <span class="problem-tag">01 / ENTRADA TARDIA</span>
+            <h3>Testes no Fim do Ciclo</h3>
+            <p>Descobrir falhas graves na véspera do release gera retrabalho, pressão e entregas inseguras.</p>
+          </div>
+          <div class="problem-card">
+            <span class="problem-tag">02 / SEM FOCO EM RISCO</span>
+            <h3>Automação sem Prioridade</h3>
+            <p>Automatizar cenários irrelevantes consome tempo enquanto jornadas financeiras críticas ficam desprotegidas.</p>
+          </div>
+          <div class="problem-card">
+            <span class="problem-tag">03 / PIPELINES PASSIVOS</span>
+            <h3>Quality Gates Inexistentes</h3>
+            <p>Executar testes no CI sem poder de bloquear Pull Requests gera falsos sinais de segurança.</p>
+          </div>
+        </div>
       </section>
 
-      <section class="section capabilities" id="capacidades">
+      <!-- 3. THE APPROACH -->
+      <section class="section approach-section" id="abordagem">
         <div class="section-kicker">
           <div class="section-heading">
-            <p class="eyebrow">Capacidades de Engenharia</p>
-            <h2>Controles proporcionais.<br />Estratégia integrada.</h2>
+            <p class="eyebrow">A Abordagem Moreira Tech</p>
+            <h2>Risco → Controle → Evidência → Decisão.</h2>
           </div>
-          <p>Cada camada de teste atende a um risco específico do negócio — conectadas por rastreabilidade e métricas objetivas sem transformar a automação em fim em si mesma.</p>
+          <p>Transformamos qualidade em uma disciplina técnica orientada ao negócio. Cada teste atende a uma prioridade clara, e cada resultado gera evidências para decisões objetivas de produto.</p>
         </div>
 
-        <div class="capability-grid">
-          <a class="capability-card featured" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/quality-strategy.md" target="_blank" rel="noreferrer">
-            <span class="card-index">01 / Estratégia</span>
+        <div class="system-grid">
+          <div class="system-card">
+            <div class="system-head"><span>01</span><strong>Estratégia &amp; Risco</strong></div>
             <h3>Risk-Based Quality</h3>
-            <p>Jornadas críticas do produto orientam os riscos, a prioridade e a escolha proporcional das camadas de controle.</p>
-            <strong>Explorar estratégia <span aria-hidden="true">↗</span></strong>
-          </a>
-          <a class="capability-card" href="https://github.com/carlosesmoreira07/quality-engineering-lab/tree/main/quality/tests" target="_blank" rel="noreferrer">
-            <span class="card-index">02 / Automação</span>
-            <h3>Continuous Automation</h3>
-            <p>Suítes funcionais com Playwright (Web e API) validando comportamentos observáveis e regras de negócio essenciais.</p>
-            <strong>Ver suítes de automação <span aria-hidden="true">↗</span></strong>
-          </a>
-          <a class="capability-card" href="https://github.com/carlosesmoreira07/quality-engineering-lab/actions/workflows/quality-gate.yml" target="_blank" rel="noreferrer">
-            <span class="card-index">03 / CI/CD</span>
-            <h3>Continuous Quality &amp; Gates</h3>
-            <p>Quality Gates determinísticos em Pull Requests com artefatos auditáveis e diagnóstico imediato em falhas.</p>
-            <strong>Ver workflow no GitHub <span aria-hidden="true">↗</span></strong>
-          </a>
-          <a class="capability-card" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/quality/performance/README.md" target="_blank" rel="noreferrer">
-            <span class="card-index">04 / Performance</span>
-            <h3>Performance Engineering</h3>
-            <p>Modelagem de carga com k6 OSS, perfis de teste realistas, validação de resiliência e thresholds objetivos de p95.</p>
-            <strong>Abrir cenários de carga <span aria-hidden="true">↗</span></strong>
-          </a>
-          <a class="capability-card" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/adr/0005-security-quality-strategy.md" target="_blank" rel="noreferrer">
-            <span class="card-index">05 / Segurança</span>
-            <h3>Security as Quality</h3>
-            <p>Verificação automatizada de limites de autorização, integridade de permissões e varreduras de dependências.</p>
-            <strong>Ver decisão de segurança <span aria-hidden="true">↗</span></strong>
-          </a>
-          <a class="capability-card" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/ai-quality-engineering.md" target="_blank" rel="noreferrer">
-            <span class="card-index">06 / IA Assistiva</span>
-            <h3>AI-Assisted QE</h3>
-            <p>Cartões de demanda, riscos e cobertura de testes correlacionados por análise inteligente com validação humana.</p>
-            <strong>Entender o fluxo assistido <span aria-hidden="true">↗</span></strong>
-          </a>
-          <a class="capability-card featured" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/experiments/README.md" target="_blank" rel="noreferrer">
-            <span class="card-index">07 / Validação de Controles</span>
-            <h3>Controlled Regressions</h3>
-            <p>Experimentos de injeção de falhas comprovam a eficácia e a capacidade de detecção dos Quality Gates na prática.</p>
-            <strong>Ver experimentos práticos <span aria-hidden="true">↗</span></strong>
-          </a>
+            <p>Mapeamento de jornadas críticas, impacto financeiro e matrizes de prioridade para orientar onde e como testar.</p>
+          </div>
+          <div class="system-card">
+            <div class="system-head"><span>02</span><strong>Automação &amp; CI/CD</strong></div>
+            <h3>Quality Gates Determinísticos</h3>
+            <p>Suítes Web e API com Playwright e bloqueio automático no GitHub Actions sem tolerância a falhas silenciosas.</p>
+          </div>
+          <div class="system-card">
+            <div class="system-head"><span>03</span><strong>Segurança &amp; Carga</strong></div>
+            <h3>Performance &amp; Security</h3>
+            <p>Testes de carga k6 com p95 &lt; 1000ms e verificação automatizada de limites de autorização (HTTP 401).</p>
+          </div>
+          <div class="system-card">
+            <div class="system-head"><span>04</span><strong>Inteligência &amp; Governança</strong></div>
+            <h3>IA Assistiva Consultiva</h3>
+            <p>IA correlaciona demandas do Jira, riscos e coberturas — mantendo 100% da decisão final sob revisão humana.</p>
+          </div>
         </div>
       </section>
 
+      <!-- 4. FLAGSHIP CASE -->
       <section class="case-study" id="case-qel">
         <div class="case-inner">
           <div class="case-copy">
             <p class="eyebrow">Case Flagship / Quality Engineering Lab</p>
-            <h2>Um laboratório executável que comprova a engenharia de qualidade em ação.</h2>
+            <h2>Um sistema completo de Engenharia de Qualidade demonstrado na prática.</h2>
             <p class="case-description">
-              O <strong>Quality Engineering Lab</strong> é a implementação de referência da Moreira Tech. Demonstra na prática como alinhar estratégia de risco, automação cross-domain (Admin → Storefront), Quality Gates em CI/CD e monitoramento de execução em um projeto auditável.
+              O <strong>Quality Engineering Lab</strong> é a implementação de referência da Moreira Tech. Demonstra como proteger uma plataforma transacional de e-commerce através de automação cross-domain (Admin → Storefront), testes de performance, segurança e Quality Gates determinísticos.
             </p>
+            <blockquote class="case-quote">
+              “IA acelera a análise. Engenharia decide.”
+            </blockquote>
             <div class="case-facts">
-              <div><span>Risco</span><p>Alteração de preço no painel Admin não propaga ou corrompe o valor final no carrinho da loja.</p></div>
-              <div><span>Controle</span><p>Automação cross-domain com Playwright realiza a mutação no Admin e valida a propagação no Storefront.</p></div>
-              <div><span>Decisão</span><p>O Quality Gate aprova a entrega apenas quando a integridade do valor é comprovada de ponta a ponta.</p></div>
+              <div><span>Risco</span><p>Alteração de preço no painel Admin não se propagar ou corromper o valor no carrinho de compras.</p></div>
+              <div><span>Controle</span><p>Automação Playwright altera o valor no Admin e valida a integridade no Storefront em tempo real.</p></div>
+              <div><span>Decisão</span><p>O Quality Gate reprova o Pull Request imediatamente caso haja divergência financeira.</p></div>
             </div>
             <div class="case-ctas">
               <a class="button primary case-btn" href="https://github.com/carlosesmoreira07/quality-engineering-lab" target="_blank" rel="noreferrer">Repositório no GitHub <span aria-hidden="true">↗</span></a>
@@ -177,160 +167,86 @@
 
           <div class="case-evidence">
             <div class="evidence-frame">
-              <div class="evidence-toolbar"><span></span><span></span><span></span><small>checkpoint / carrinho storefront</small></div>
-              <button class="image-button" type="button" data-modal-src="assets/evidence/admin-storefront-cart.png" data-modal-alt="Item criado pela automação no carrinho da Storefront com preço propagado">
-                <img src="assets/evidence/admin-storefront-cart.png" alt="Item criado pela automação no carrinho da Storefront com preço propagado" width="343" height="88" loading="lazy" decoding="async" />
-                <span>Ampliar evidência</span>
+              <div class="evidence-toolbar"><span></span><span></span><span></span><small>checkout / carrinho storefront</small></div>
+              <button class="image-button" type="button" data-modal-src="assets/evidence/admin-storefront-full.png" data-modal-alt="Item criado pela automação no carrinho da Storefront com preço validado">
+                <img src="assets/evidence/admin-storefront-full.png" alt="Item criado pela automação no carrinho da Storefront com preço validado" width="1280" height="720" loading="lazy" decoding="async" />
+                <span>Ampliar visual em alta resolução</span>
               </button>
             </div>
             <ol class="case-steps" aria-label="Etapas do fluxo cross-domain">
-              <li><span>1</span>Admin persiste preço</li>
-              <li><span>2</span>Storefront recebe alteração</li>
+              <li><span>1</span>Admin altera preço</li>
+              <li><span>2</span>Storefront atualiza</li>
               <li><span>3</span>Carrinho preserva valor</li>
             </ol>
           </div>
         </div>
       </section>
 
-      <section class="section regression" id="experimentos">
-        <div class="section-kicker">
-          <div class="section-heading">
-            <p class="eyebrow">Capacidade de Detecção</p>
-            <h2>Não basta o pipeline passar.<br />O controle precisa saber reprovar.</h2>
-          </div>
-          <p>Em nosso laboratório, simulações de injeção de falha validam que a automação detecta violações de contrato, latência excessiva ou quebras de segurança antes do release.</p>
-        </div>
-
-        <div class="regression-grid">
-          <article class="phase green">
-            <span class="phase-id">01 / ESTADO SAUDÁVEL</span>
-            <div class="phase-status">PASS</div>
-            <h3>Comportamento esperado</h3>
-            <p>O fluxo de negócio correto é verificado e aprovado pelo controle existente.</p>
-          </article>
-          <article class="phase red">
-            <span class="phase-id">02 / FALHA INJETADA</span>
-            <div class="phase-status">FAIL</div>
-            <h3>Regressão detectada</h3>
-            <p>Divergência de preço, latência ou falha de autorização violam o threshold e o Quality Gate reprova.</p>
-          </article>
-          <article class="phase green restored">
-            <span class="phase-id">03 / RESTAURAÇÃO</span>
-            <div class="phase-status">PASS</div>
-            <h3>Comportamento restaurado</h3>
-            <p>A falha é corrigida, o estado estável é reestabelecido e o controle volta a aprovar com segurança.</p>
-          </article>
-        </div>
-        <div class="experiment-decision">
-          <span>Produto durante a regressão: <strong>REPROVADO</strong></span>
-          <span>Experimento de detecção: <strong>CONFIRMADO E APROVADO</strong></span>
-          <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/actions/workflows/controlled-regression-experiments.yml" target="_blank" rel="noreferrer">Abrir workflow de experimentos <span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
-
-      <section class="ai-section" id="ia">
-        <div class="section ai-inner">
-          <div class="ai-copy">
-            <p class="eyebrow">IA Aplicada à Engenharia de Qualidade</p>
-            <h2>IA acelera a análise.<br /><em>Engenharia decide.</em></h2>
-            <p>A inteligência artificial analisa a demanda no Jira, correlaciona jornadas afetadas e descobre a cobertura existente no código. Gaps viram recomendações técnicas — nunca aprovação automática sem validação humana.</p>
-            <a class="text-link" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/examples/ai-quality-impact-analysis.md" target="_blank" rel="noreferrer">Ver exemplo de análise de impacto <span aria-hidden="true">↗</span></a>
-          </div>
-          <ol class="ai-flow" aria-label="Fluxo da análise de impacto assistida por IA">
-            <li><span>Jira card</span><small>objetivo + critérios</small></li>
-            <li><span>Impacto</span><small>jornadas afetadas</small></li>
-            <li><span>Riscos</span><small>prioridade existente</small></li>
-            <li><span>Cobertura</span><small>assertions + checks</small></li>
-            <li><span>Gaps</span><small>sinal insuficiente</small></li>
-            <li><span>Recomendação</span><small>menor controle eficaz</small></li>
-            <li class="human"><span>Revisão humana</span><small>decisão explícita</small></li>
-          </ol>
-        </div>
-      </section>
-
+      <!-- 5. REAL EVIDENCE -->
       <section class="section evidence-section" id="evidencias">
         <div class="section-kicker">
           <div class="section-heading">
-            <p class="eyebrow">Transparência &amp; Evidências</p>
-            <h2>Do sinal técnico<br />à decisão executiva.</h2>
+            <p class="eyebrow">Transparência &amp; Prova Técnica</p>
+            <h2>Evidências reais. Não palavras.</h2>
           </div>
-          <p>Todas as execuções do laboratório geram evidências auditáveis disponíveis em tempo real na nossa Central de Evidências em produção.</p>
+          <p>Não apresentamos aprovações sem provas. Cada execução do sistema produz evidências auditáveis em tempo real publicadas em nossa Central de Evidências.</p>
         </div>
 
-        <div class="evidence-grid">
-          <article class="evidence-card gate-card">
-            <div class="evidence-card-head"><span>GitHub Actions</span><strong>Quality Gate</strong></div>
+        <div class="evidence-showcase">
+          <article class="evidence-card featured-evidence">
+            <div class="evidence-card-head"><span>GitHub Actions</span><strong>Quality Gate Aprovado</strong></div>
             <button class="image-button gate-shot" type="button" data-modal-src="assets/evidence/quality-gate.png" data-modal-alt="Execução real do Quality Gate aprovada no GitHub Actions">
               <img src="assets/evidence/quality-gate.png" alt="Execução real do Quality Gate aprovada no GitHub Actions" width="1265" height="712" loading="lazy" decoding="async" />
-              <span>Ampliar execução real</span>
+              <span>Ampliar captura do pipeline</span>
             </button>
-            <p>Execuções automáticas acionadas a cada Pull Request com verificação rigorosa de testes funcionais e não-funcionais.</p>
+            <p class="evidence-caption">Quality Gate aprovando uma mudança no GitHub Actions após verificações funcionais, de autorização e performance.</p>
           </article>
 
-          <article class="evidence-card metric-card">
-            <div class="evidence-card-head"><span>k6 OSS</span><strong>Thresholds</strong></div>
-            <div class="metric-lines" aria-label="Thresholds versionados do cenário smoke">
+          <article class="evidence-card">
+            <div class="evidence-card-head"><span>k6 OSS</span><strong>Performance Thresholds</strong></div>
+            <div class="metric-lines" aria-label="Thresholds de performance do k6">
               <div><span>product_view / p95</span><strong>&lt; 1000 ms</strong></div>
               <div><span>order_validation / p95</span><strong>&lt; 500 ms</strong></div>
               <div><span>http_req_failed</span><strong>rate = 0</strong></div>
-              <div><span>checks</span><strong>rate = 1</strong></div>
+              <div><span>checks</span><strong>rate = 1.00 (100%)</strong></div>
             </div>
-            <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/quality/performance/scenarios/smoke.js" target="_blank" rel="noreferrer">Ver cenário de carga <span aria-hidden="true">↗</span></a>
+            <p class="evidence-caption">Thresholds de carga com tempos de resposta p95 sob controle estrito em ambiente de teste.</p>
+            <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/quality/performance/scenarios/smoke.js" target="_blank" rel="noreferrer">Ver cenário k6 no GitHub <span aria-hidden="true">↗</span></a>
           </article>
 
-          <article class="evidence-card security-card">
-            <div class="evidence-card-head"><span>Security as Quality</span><strong>Authorization</strong></div>
+          <article class="evidence-card">
+            <div class="evidence-card-head"><span>Security as Quality</span><strong>Limites de Autorização</strong></div>
             <div class="security-check">
               <span>anonymous → admin mutation</span>
               <strong><i></i> HTTP 401 esperado</strong>
-              <small>Controle automatizado reprova imediatamente caso uma requisição não autorizada retorne 200.</small>
+              <small>O Quality Gate reprova imediatamente caso uma tentativa de mutação anônima não seja bloqueada.</small>
             </div>
+            <p class="evidence-caption">Verificação automatizada de barreiras de segurança integrada às suítes de teste de API.</p>
             <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/quality/tests/api/security/authorization-boundaries.spec.ts" target="_blank" rel="noreferrer">Ver teste de segurança <span aria-hidden="true">↗</span></a>
-          </article>
-
-          <article class="evidence-card impact-card">
-            <div class="evidence-card-head"><span>Quality Impact Analysis</span><strong>Risco ≠ Palavra-chave</strong></div>
-            <blockquote>“A existência de um teste não garante aprovação sem a evidência de uma execução recente verificada.”</blockquote>
-            <div class="classification"><span>COBERTO</span><span>PARCIAL</span><span>GAP</span></div>
-            <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/examples/ai-quality-impact-analysis.md" target="_blank" rel="noreferrer">Ver relatórios de exemplo <span aria-hidden="true">↗</span></a>
           </article>
         </div>
 
         <div class="evidence-cta-banner">
           <div class="banner-content">
-            <h3>Central de Evidências em Tempo Real</h3>
-            <p>Acesse o dashboard interativo onde relatórios executivos, histórico de execuções e artefatos dos testes ficam publicados.</p>
+            <h3>Explore a Central de Evidências em Tempo Real</h3>
+            <p>Acesse o portal público no GitHub Pages com relatórios executivos em PDF, históricos de execução e artefatos de testes.</p>
           </div>
           <a class="button primary" href="https://carlosesmoreira07.github.io/quality-engineering-lab/" target="_blank" rel="noreferrer">Acessar Central de Evidências <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
-      <section class="section technical" id="aprofundar">
-        <div>
-          <p class="eyebrow">Documentação &amp; Arquitetura</p>
-          <h2>Decisões transparentes.</h2>
-          <p>Todas as escolhas técnicas, estratégias de teste, guias e arquiteturas do Quality Engineering Lab estão documentadas abertamente.</p>
-        </div>
-        <div class="resource-list">
-          <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/quality-strategy.md" target="_blank" rel="noreferrer"><span>01</span> Estratégia de Qualidade Baseada em Risco <i>↗</i></a>
-          <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/tree/main/docs/adr" target="_blank" rel="noreferrer"><span>02</span> Decisões Arquiteturais (ADRs) <i>↗</i></a>
-          <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/tree/main/quality" target="_blank" rel="noreferrer"><span>03</span> Código de Automação &amp; Frameworks <i>↗</i></a>
-          <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/actions" target="_blank" rel="noreferrer"><span>04</span> Pipelines &amp; Workflows de CI/CD <i>↗</i></a>
-          <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/wiki" target="_blank" rel="noreferrer"><span>05</span> Documentação Oficial na Wiki <i>↗</i></a>
-        </div>
-      </section>
-
+      <!-- 6. HUMAN & PROFESSIONAL POSITIONING -->
       <section class="section contact-section" id="contato">
         <div class="contact-card">
           <div class="contact-copy">
-            <p class="eyebrow">Contato &amp; Parcerias</p>
-            <h2>Vamos falar de Engenharia de Qualidade?</h2>
+            <p class="eyebrow">Sobre a Moreira Tech</p>
+            <h2>Engenharia de Qualidade guiada por experiência real.</h2>
             <p>
-              Seja para estruturar a estratégia de testes do seu produto, implementar Quality Gates determinísticos em CI/CD ou discutir arquitetura de automação.
+              Desenvolvido por <strong>Carlos Eduardo Moreira</strong>. Atuação em engenharia de qualidade, liderança técnica, arquitetura de testes e implementação de sistemas de qualidade que conectam decisões técnicas a riscos do negócio.
             </p>
             <div class="contact-methods">
               <a class="contact-email" href="mailto:contato@moreira-tech.com">
-                <span>E-mail direto</span>
+                <span>Contato direto</span>
                 <strong>contato@moreira-tech.com</strong>
               </a>
             </div>
@@ -353,9 +269,23 @@
             </a>
             <a class="contact-box" href="https://www.linkedin.com/in/carlos-moreira-qa-lead/" target="_blank" rel="noreferrer">
               <span class="box-tag">LinkedIn</span>
-              <strong>Perfil profissional ↗</strong>
+              <strong>Perfil Profissional ↗</strong>
               <small>linkedin.com/in/carlos-moreira-qa-lead</small>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FINAL CLOSING CTA -->
+      <section class="section final-cta-section" id="fechamento">
+        <div class="final-cta-inner">
+          <p class="eyebrow">Conclusão</p>
+          <h2>Qualidade deixa de ser uma etapa quando passa a orientar decisões.</h2>
+          <p class="final-lead">Explore o código, confira as evidências e veja como a Engenharia de Qualidade eleva a confiança de release.</p>
+          <div class="final-cta-actions">
+            <a class="button primary" href="https://github.com/carlosesmoreira07/quality-engineering-lab" target="_blank" rel="noreferrer">Explorar o Quality Engineering Lab <span aria-hidden="true">↗</span></a>
+            <a class="button secondary" href="https://carlosesmoreira07.github.io/quality-engineering-lab/" target="_blank" rel="noreferrer">Ver Central de Evidências <span aria-hidden="true">↗</span></a>
+            <a class="button tertiary" href="mailto:contato@moreira-tech.com">Falar com a Moreira Tech ✉</a>
           </div>
         </div>
       </section>
@@ -385,4 +315,5 @@
     <script src="script.js"></script>
   </body>
 </html>
+
 
