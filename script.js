@@ -14,14 +14,12 @@ if (menuBtn && nav) {
     const open = nav.classList.toggle('open');
     menuBtn.setAttribute('aria-expanded', String(open));
   });
-  // Close on nav link click
   nav.addEventListener('click', e => {
     if (e.target.tagName === 'A') {
       nav.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
     }
   });
-  // Close on outside click
   document.addEventListener('click', e => {
     if (!menuBtn.contains(e.target) && !nav.contains(e.target)) {
       nav.classList.remove('open');
@@ -30,90 +28,101 @@ if (menuBtn && nav) {
   });
 }
 
-// ── 2. TERMINAL ANIMATION ──────────────────────────────
-const output = document.getElementById('terminal-output');
-const cursor = document.querySelector('.terminal-cursor');
-
-// Respect prefers-reduced-motion
+// ── 2. TERMINAL TYPEWRITER ─────────────────────────────
+const output      = document.getElementById('terminal-output');
+const cursor      = document.querySelector('.terminal-cursor');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Script lines: [cssClass, text, pauseAfter(ms)]
+// pauseAfter = extra wait after this line before next
 const SCRIPT = [
-  { cls: 'running', delay: 600, lines: [
-    { cls: 't-info', text: 'ℹ  Running 6 tests using 2 workers' },
-    { cls: 't-sub',  text: 'project: web-cross-domain-flow' },
-  ]},
-  { delay: 900, lines: [
-    { cls: 't-pass', text: '  ✓  [Admin] criar produto com preço R$199,90' },
-    { cls: 't-pass', text: '  ✓  [Storefront] produto visível com preço correto' },
-    { cls: 't-pass', text: '  ✓  [Carrinho] valor preservado no checkout' },
-  ]},
-  { delay: 600, lines: [
-    { cls: 't-sub',  text: 'project: api-security' },
-  ]},
-  { delay: 400, lines: [
-    { cls: 't-pass', text: '  ✓  anonymous → admin mutation → HTTP 401 ✓' },
-    { cls: 't-pass', text: '  ✓  price integrity after concurrent edits' },
-  ]},
-  { delay: 800, lines: [
-    { cls: 't-sub',  text: 'project: performance / k6' },
-    { cls: 't-pass', text: '  ✓  p95 product_view = 412 ms  (< 1 000 ms)' },
-    { cls: 't-pass', text: '  ✓  p95 order_validation = 238 ms  (< 500 ms)' },
-    { cls: 't-pass', text: '  ✓  http_req_failed rate = 0' },
-  ]},
-  { delay: 700, lines: [
-    { cls: 't-info', text: '─────────────────────────────────────────────' },
-    { cls: 't-pass', text: '  6 passed  (6)' },
-    { cls: 't-info', text: '  Finished in 12.4s' },
-  ]},
-  { delay: 500, lines: [
-    { cls: 't-ok',  text: '' },
-    { cls: 't-ok',  text: '  ✔  QUALITY GATE — APROVADO' },
-    { cls: 't-sub', text: '  Pull Request liberado para merge ✓' },
-  ]},
+  ['t-dim-cmd', '$ playwright test --project=web-cross-domain', 600],
+  ['t-info',    'ℹ  Running 6 tests · 2 workers',              300],
+  ['t-sub',     '  ─────────────────────────────────────────',  200],
+  ['t-pass',    '  ✓  [Web] Admin → preço atualizado',          120],
+  ['t-pass',    '  ✓  [Web] Storefront → valor propagado',      120],
+  ['t-pass',    '  ✓  [Web] Carrinho → integridade preservada', 300],
+  ['t-sub',     '  ─────────────────────────────────────────',  200],
+  ['t-pass',    '  ✓  [API] Autorização · HTTP 401 confirmado', 120],
+  ['t-pass',    '  ✓  [Perf] p95 product_view = 412 ms',        120],
+  ['t-pass',    '  ✓  [Perf] p95 order_validation = 231 ms',    400],
+  ['t-sub',     '  ─────────────────────────────────────────',  300],
+  ['t-info',    '  6 passed · 0 failed · 12.4 s',               200],
+  ['t-ok',      '',                                              0],
+  ['t-ok',      '  ✔  QUALITY GATE — APROVADO',                 0],
+  ['t-sub',     '  PR liberado para merge ✓',                   4000],
 ];
 
-function addLine(cls, text) {
-  const div = document.createElement('div');
-  div.className = `t-line ${cls}`;
-  div.textContent = text;
-  output.appendChild(div);
-  // Keep scroll at bottom
-  output.scrollTop = output.scrollHeight;
-}
-
-async function sleep(ms) {
+function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
 
-async function runTerminal() {
-  if (!output || reducedMotion) {
-    // Static fallback for reduced motion
-    if (output) {
-      SCRIPT.forEach(block => block.lines.forEach(l => addLine(l.cls, l.text)));
-    }
+function makeLine(cls, text) {
+  const div = document.createElement('div');
+  div.className = `t-line ${cls}`;
+  div.textContent = text;
+  return div;
+}
+
+async function typeLine(el, text, charDelay = 22) {
+  for (const ch of text) {
+    el.textContent += ch;
+    output.scrollTop = output.scrollHeight;
+    await sleep(charDelay);
+  }
+}
+
+async function runAnimation() {
+  if (!output) return;
+
+  if (reducedMotion) {
+    // Static snapshot — no typing, no loop
+    SCRIPT.forEach(([cls, text]) => {
+      if (cls !== 't-ok' || text) output.appendChild(makeLine(cls, text));
+    });
     return;
   }
 
-  await sleep(800);
+  while (true) {
+    output.innerHTML = '';
 
-  for (const block of SCRIPT) {
-    await sleep(block.delay);
-    for (const line of block.lines) {
-      addLine(line.cls, line.text);
-      await sleep(120);
+    for (const [cls, text, pause] of SCRIPT) {
+      const el = makeLine(cls, '');
+      output.appendChild(el);
+
+      // First line types char-by-char, rest appear word-by-word for speed
+      const isCommand = cls === 't-dim-cmd';
+      if (isCommand) {
+        // Show $ prompt immediately, then type the command
+        el.innerHTML = '<span class="t-dim">$</span> ';
+        const cmdSpan = document.createElement('span');
+        cmdSpan.className = 't-cmd';
+        el.appendChild(cmdSpan);
+        for (const ch of text.replace(/^\$ /, '')) {
+          cmdSpan.textContent += ch;
+          output.scrollTop = output.scrollHeight;
+          await sleep(28);
+        }
+      } else if (text === '') {
+        // Empty spacer — instant
+      } else {
+        // Fast reveal for status lines
+        el.textContent = text;
+        output.scrollTop = output.scrollHeight;
+      }
+
+      if (pause > 0) await sleep(pause);
     }
-  }
 
-  // Restart loop after pause
-  await sleep(4500);
-  output.innerHTML = '<div class="t-line"><span class="t-dim">$</span> <span class="t-cmd">playwright test --project=web-cross-domain</span></div>';
-  runTerminal();
+    // Pause at end before loop restart
+    await sleep(1800);
+  }
 }
 
-runTerminal();
+runAnimation();
 
 // ── 3. IMAGE MODAL ─────────────────────────────────────
-const dialog   = document.querySelector('.img-dialog');
+const dialog    = document.querySelector('.img-dialog');
 const dialogImg = dialog ? dialog.querySelector('img') : null;
 const closeBtn  = dialog ? dialog.querySelector('.dialog-close') : null;
 
@@ -125,10 +134,6 @@ if (dialog && dialogImg) {
       dialog.showModal();
     });
   });
-
   if (closeBtn) closeBtn.addEventListener('click', () => dialog.close());
-
-  dialog.addEventListener('click', e => {
-    if (e.target === dialog) dialog.close();
-  });
+  dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
 }

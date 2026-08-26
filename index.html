@@ -31,6 +31,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav id="site-nav" aria-label="Seções">
+        <a href="#trajetoria">Trajetória</a>
         <a href="#abordagem">Abordagem</a>
         <a href="#case-qel">Case</a>
         <a href="#evidencias">Evidências</a>
@@ -47,7 +48,8 @@
           <p class="eyebrow">Quality Engineering &amp; Risk Strategy</p>
           <h1>Qualidade não começa<br />no teste.<br /><em>Começa na decisão.</em></h1>
           <p class="hero-sub">
-            Estratégia baseada em risco, automação determinística e Quality Gates que bloqueiam releases inseguros — antes de chegar à produção.
+            Risco identificado. Controles automatizados. Quality Gate bloqueando o merge.<br />
+            Evidência gerada. Decisão humana.
           </p>
           <div class="hero-ctas">
             <a class="btn btn-primary" href="#case-qel">Ver o Case Flagship</a>
@@ -56,17 +58,49 @@
         </div>
 
         <!-- Terminal Animation -->
-        <div class="terminal" aria-label="Demonstração do sistema de qualidade em execução" role="img">
+        <div class="terminal" aria-label="Simulação de pipeline de Quality Engineering em execução" role="img">
           <div class="terminal-bar">
             <span class="dot red" aria-hidden="true"></span>
             <span class="dot amber" aria-hidden="true"></span>
             <span class="dot green" aria-hidden="true"></span>
             <span class="terminal-title">quality-gate.yml — GitHub Actions</span>
           </div>
-          <div class="terminal-body" id="terminal-output" aria-live="polite" aria-atomic="false">
-            <div class="t-line"><span class="t-dim">$</span> <span class="t-cmd">playwright test --project=web-cross-domain</span></div>
-          </div>
+          <div class="terminal-body" id="terminal-output" aria-live="polite" aria-atomic="false"></div>
           <div class="terminal-cursor" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- TRAJETÓRIA / STORYTELLING -->
+      <section class="section story-section" id="trajetoria">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="eyebrow">Trajetória</p>
+            <h2>De executar testes a arquitetar qualidade.</h2>
+          </header>
+          <div class="story-grid">
+            <div class="story-card story-start">
+              <span class="story-marker">Início</span>
+              <h3>Qualidade invisível, risco silencioso</h3>
+              <p>Testes manuais tardios, sem foco em risco. Bugs descobertos na véspera do release. Automação como checklist — não como estratégia.</p>
+            </div>
+            <div class="story-card story-mid">
+              <span class="story-marker">Evolução</span>
+              <h3>Engenharia, não execução</h3>
+              <p>Arquitetura de suítes orientadas a risco. Playwright e k6 integrados ao CI/CD. Quality Gates bloqueando releases com evidências auditáveis.</p>
+              <ul class="story-tags">
+                <li>Risk-based testing</li>
+                <li>CI/CD com bloqueio automático</li>
+                <li>Performance &amp; Security como qualidade</li>
+                <li>IA assistiva — decisão humana</li>
+              </ul>
+            </div>
+            <div class="story-card story-end">
+              <span class="story-marker">Propósito</span>
+              <h3>Qualidade como disciplina estratégica</h3>
+              <p>A Moreira Tech aplica Quality Engineering para que decisões de release sejam feitas com base em evidências — não em intuição.</p>
+              <p class="story-quote">"IA acelera a análise. Engenharia decide."</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -74,31 +108,31 @@
       <section class="section" id="abordagem">
         <div class="section-inner">
           <header class="section-header">
-            <p class="eyebrow">A Abordagem</p>
+            <p class="eyebrow">Sistema de Qualidade</p>
             <h2>Risco → Controle → Evidência → Decisão.</h2>
-            <p class="section-lead">Cada teste existe para cobrir um risco real. Cada execução gera evidência auditável. A decisão de release é sempre humana, nunca implícita.</p>
+            <p class="section-lead">Cada teste cobre um risco real. Cada execução gera evidência auditável. A decisão de release é sempre humana.</p>
           </header>
 
           <div class="pillars">
             <div class="pillar">
               <span class="pillar-num">01</span>
               <h3>Risk-Based Quality</h3>
-              <p>Jornadas críticas do produto orientam onde testar, com que profundidade e qual threshold é aceitável.</p>
+              <p>Jornadas críticas determinam onde testar, com qual profundidade e qual threshold é aceitável.</p>
             </div>
             <div class="pillar">
               <span class="pillar-num">02</span>
               <h3>Quality Gates em CI/CD</h3>
-              <p>Playwright Web &amp; API com bloqueio automático de Pull Requests. Falha silenciosa não existe.</p>
+              <p>Playwright Web &amp; API bloqueando Pull Requests. Falha silenciosa não existe no pipeline.</p>
             </div>
             <div class="pillar">
               <span class="pillar-num">03</span>
               <h3>Performance &amp; Security</h3>
-              <p>k6 com thresholds de p95 e verificação de limites de autorização (HTTP 401) integrados ao pipeline.</p>
+              <p>k6 com thresholds p95 e verificação de autorização HTTP 401 como parte do gate, não como etapa separada.</p>
             </div>
             <div class="pillar">
               <span class="pillar-num">04</span>
-              <h3>IA Assistiva — Humano Decide</h3>
-              <p>IA correlaciona demanda, risco e cobertura existente. A aprovação final é sempre revisão humana explícita.</p>
+              <h3>IA Assistiva</h3>
+              <p>IA correlaciona demanda, risco e cobertura. A aprovação de release é sempre revisão humana — nunca automática.</p>
             </div>
           </div>
         </div>
@@ -111,7 +145,7 @@
             <p class="eyebrow case-eyebrow">Case Flagship</p>
             <h2>Quality Engineering Lab</h2>
             <p class="case-lead">
-              Implementação de referência que demonstra como proteger uma plataforma transacional de e-commerce com automação cross-domain, Quality Gates determinísticos e evidências reais em produção.
+              Sistema de referência que demonstra, na prática, como estratégia de risco, automação cross-domain Playwright, Quality Gates e evidências auditáveis funcionam juntos em um produto real.
             </p>
             <blockquote class="case-quote">"IA acelera a análise. Engenharia decide."</blockquote>
             <dl class="case-facts">
@@ -221,7 +255,7 @@
           <div class="contact-copy">
             <p class="eyebrow">Sobre</p>
             <h2>Carlos Eduardo Moreira</h2>
-            <p>Engenharia de Qualidade, liderança técnica e arquitetura de testes. Qualidade tratada como disciplina de engenharia — não como fase final de um ciclo.</p>
+            <p>Quality Engineering, liderança técnica e arquitetura de automação. Qualidade como disciplina de engenharia — não etapa final de um ciclo.</p>
             <a class="contact-email" href="mailto:contato@moreira-tech.com">
               <span>E-mail</span>
               <strong>contato@moreira-tech.com</strong>
