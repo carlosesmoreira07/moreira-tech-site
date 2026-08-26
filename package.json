@@ -1,0 +1,20 @@
+{
+  "name": "moreira-tech-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Moreira Tech institutional website - Quality Engineering & Risk Strategy",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs"
+  },
+  "keywords": [
+    "moreira-tech",
+    "quality-engineering",
+    "risk-based-testing",
+    "quality-gates"
+  ],
+  "author": "Carlos Eduardo Moreira",
+  "license": "UNLICENSED"
+}
