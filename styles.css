@@ -58,7 +58,7 @@ dialog { padding: 0; border: none; background: transparent; }
 .site-header {
   position: sticky; top: 0; z-index: 50;
   width: 100%;
-  background: rgba(9, 12, 10, 0.92);
+  background: rgba(9, 12, 10, 0.94);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
@@ -85,7 +85,11 @@ dialog { padding: 0; border: none; background: transparent; }
 }
 .brand-name { font-weight: 750; font-size: .95rem; letter-spacing: .02em; }
 
-nav { display: flex; align-items: center; gap: 1.8rem; }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
 nav a {
   color: var(--muted); font-size: .84rem; font-weight: 550;
   transition: color .15s ease;
@@ -175,7 +179,7 @@ h2 { font-size: clamp(1.9rem, 3.8vw, 3.2rem); font-weight: 750; }
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   align-items: center;
-  gap: clamp(2.5rem, 5vw, 5rem);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
   padding-block: clamp(2.5rem, 4vw, 3.8rem);
 }
 .hero-bg-glow {
@@ -185,10 +189,11 @@ h2 { font-size: clamp(1.9rem, 3.8vw, 3.2rem); font-weight: 750; }
   background: radial-gradient(circle, rgba(74, 250, 138, 0.08) 0%, transparent 65%);
 }
 h1 {
-  font-size: clamp(2.35rem, 4.5vw, 4.2rem);
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.18;
   color: var(--ink);
+  max-width: 24ch;
 }
 h1 em { color: var(--mint); font-style: normal; }
 .hero-sub {
@@ -1126,10 +1131,15 @@ h1 em { color: var(--mint); font-style: normal; }
 /* =====================================================
    RESPONSIVE & MEDIA QUERIES
    ===================================================== */
-@media (max-width: 1020px) {
-  .menu-btn { display: flex; }
+@media (min-width: 901px) {
+  .menu-btn { display: none !important; }
+  nav { display: flex !important; }
+}
+
+@media (max-width: 900px) {
+  .menu-btn { display: flex !important; }
   nav {
-    display: none;
+    display: none !important;
     position: absolute; top: 4.4rem; right: 0; left: 0;
     flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
     background: rgba(15, 23, 18, 0.98);
@@ -1138,7 +1148,7 @@ h1 em { color: var(--mint); font-style: normal; }
     padding: 1.5rem 1.25rem 2rem;
     box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.6);
   }
-  nav.open { display: flex; }
+  nav.open { display: flex !important; }
   nav a {
     padding: .85rem 1rem;
     font-size: 1.05rem;
@@ -1154,10 +1164,9 @@ h1 em { color: var(--mint); font-style: normal; }
     min-width: 16rem;
     margin-top: 0.5rem;
   }
-  .site-header { position: sticky; }
 
   .hero { grid-template-columns: 1fr; min-height: auto; padding-block: 2.75rem 2rem; gap: 2.5rem; }
-  h1 { max-width: 100%; font-size: clamp(2.4rem, 7vw, 3.8rem); }
+  h1 { max-width: 100%; font-size: clamp(2rem, 6vw, 3.2rem); }
   .terminal, .quality-badge { max-width: 100%; }
 
   .services-grid { grid-template-columns: 1fr; }
@@ -1178,7 +1187,7 @@ h1 em { color: var(--mint); font-style: normal; }
 }
 
 @media (max-width: 580px) {
-  h1 { font-size: clamp(2.1rem, 9.5vw, 2.9rem); }
+  h1 { font-size: clamp(1.85rem, 8vw, 2.5rem); }
   .hero-ctas { flex-direction: column; }
   .btn { width: 100%; }
   .pillars { grid-template-columns: 1fr; }
