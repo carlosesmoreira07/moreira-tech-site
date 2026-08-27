@@ -1,7 +1,8 @@
-﻿/* =====================================================
+/* =====================================================
    MOREIRA TECH — script.js
    Comportamento compartilhado: navegação, modal, scroll-reveal,
-   painel de qualidade, simulação de execução e cópia de e-mail.
+   painel de qualidade, simulação de execução, cópia de e-mail
+   e terminal de Quality Gate.
    ===================================================== */
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -63,7 +64,74 @@ if (menuBtn && nav) {
   }
 }
 
-// ── 4. SIMULAÇÃO DE EXECUÇÃO INTERATIVA (CASE VISUAL) ──
+// ── 4. TERMINAL INTERATIVO (QUALITY GATE) ─────────────
+function initQualityGateTerminal() {
+  const output = document.getElementById('terminal-output');
+  if (!output || output.dataset.running) return;
+  output.dataset.running = 'true';
+
+  const SCRIPT = [
+    ['t-dim-cmd', 'playwright test --project=web-cross-domain', 700],
+    ['t-info',    'ℹ  Running 6 tests · 2 workers',             350],
+    ['t-sub',     '─────────────────────────────────────────',   200],
+    ['t-pass',    '✓  [Web] Admin → preço atualizado',          140],
+    ['t-pass',    '✓  [Web] Storefront → valor propagado',      140],
+    ['t-pass',    '✓  [Web] Carrinho → integridade preservada', 350],
+    ['t-sub',     '─────────────────────────────────────────',   200],
+    ['t-pass',    '✓  [API] Autorização · HTTP 401 confirmado', 140],
+    ['t-pass',    '✓  [Perf] p95 product_view = 412 ms',        140],
+    ['t-pass',    '✓  [Perf] p95 order_validation = 231 ms',    450],
+    ['t-sub',     '─────────────────────────────────────────',   350],
+    ['t-info',    '6 passed · 0 failed · 12.4 s',               250],
+    ['t-ok',      '',                                             0],
+    ['t-ok',      '✔  QUALITY GATE — APROVADO',                 0],
+    ['t-sub',     'PR liberado para merge ✓',                  5000],
+  ];
+
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  function makeLine(cls, text) {
+    const div = document.createElement('div');
+    div.className = 't-line ' + cls;
+    div.textContent = text;
+    return div;
+  }
+
+  async function run() {
+    while (true) {
+      output.innerHTML = '';
+      for (const [cls, text, pause] of SCRIPT) {
+        const el = makeLine(cls, '');
+        output.appendChild(el);
+
+        if (cls === 't-dim-cmd') {
+          el.innerHTML = '<span class="t-dim">$</span> ';
+          const cmd = document.createElement('span');
+          cmd.className = 't-cmd';
+          el.appendChild(cmd);
+          for (const ch of text) {
+            cmd.textContent += ch;
+            output.scrollTop = output.scrollHeight;
+            await sleep(26);
+          }
+        } else if (text === '') {
+          // spacer
+        } else {
+          el.textContent = text;
+          output.scrollTop = output.scrollHeight;
+        }
+
+        if (pause > 0) await sleep(pause);
+      }
+      await sleep(2200);
+    }
+  }
+
+  run();
+}
+initQualityGateTerminal();
+
+// ── 5. SIMULAÇÃO DE EXECUÇÃO INTERATIVA (CASE VISUAL) ──
 {
   const stepItems = document.querySelectorAll('.flow-step-item');
   const stagePreview = document.querySelector('.flow-live-stage');
@@ -150,7 +218,7 @@ if (menuBtn && nav) {
   }
 }
 
-// ── 5. CÓPIA DE E-MAIL COM FEEDBACK VISUAL ─────────────
+// ── 6. CÓPIA DE E-MAIL COM FEEDBACK VISUAL ─────────────
 {
   const copyButtons = document.querySelectorAll('.copy-email-btn');
   copyButtons.forEach(btn => {
@@ -185,7 +253,7 @@ if (menuBtn && nav) {
   });
 }
 
-// ── 6. MODAL DE EVIDÊNCIA EM ALTA RESOLUÇÃO ────────────
+// ── 7. MODAL DE EVIDÊNCIA EM ALTA RESOLUÇÃO ────────────
 {
   const dialog    = document.querySelector('.img-dialog');
   const dialogImg = dialog ? dialog.querySelector('img') : null;
