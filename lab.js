@@ -1,6 +1,6 @@
 ﻿/* =====================================================
    MOREIRA TECH — lab.js
-   Terminal interativo com typewriter em PT-BR.
+   Terminal interativo de demonstração do Quality Gate.
    Carregado exclusivamente em lab.html.
    ===================================================== */
 
@@ -10,21 +10,23 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 if (!output) {
   console.warn('lab.js: #terminal-output não encontrado.');
 } else {
+  // Linhas: [cssClass, texto, pausaAposMs]
   const SCRIPT = [
     ['t-dim-cmd', 'playwright test --project=web-cross-domain', 700],
-    ['t-info',    'Analisando riscos: 6 testes executando em 2 workers', 350],
-    ['t-sub',     '  ──────────────────────────────────────────', 200],
-    ['t-pass',    '  ✓  [PASS] Web / Admin: preço atualizado (R$ 199,90)', 130],
-    ['t-pass',    '  ✓  [PASS] Web / Storefront: valor propagado', 130],
-    ['t-pass',    '  ✓  [PASS] Web / Carrinho: integridade preservada', 350],
-    ['t-sub',     '  ──────────────────────────────────────────', 200],
-    ['t-pass',    '  ✓  [PASS] Segurança / Limite HTTP 401 confirmado', 130],
-    ['t-pass',    '  ✓  [PASS] Carga k6 / p95 = 412 ms (< 1000 ms)', 450],
-    ['t-sub',     '  ──────────────────────────────────────────', 350],
-    ['t-info',    '  6 aprovados · 0 falhas · Duração: 12.4 s', 250],
-    ['t-ok',      '', 0],
-    ['t-ok',      '  ✔  Quality Gate: APROVADO COM SUCESSO', 0],
-    ['t-sub',     '  Pull Request liberado para integração contínua', 5000],
+    ['t-info',    'ℹ  Running 6 tests · 2 workers',             350],
+    ['t-sub',     '─────────────────────────────────────────',   200],
+    ['t-pass',    '✓  [Web] Admin → preço atualizado',          140],
+    ['t-pass',    '✓  [Web] Storefront → valor propagado',      140],
+    ['t-pass',    '✓  [Web] Carrinho → integridade preservada', 350],
+    ['t-sub',     '─────────────────────────────────────────',   200],
+    ['t-pass',    '✓  [API] Autorização · HTTP 401 confirmado', 140],
+    ['t-pass',    '✓  [Perf] p95 product_view = 412 ms',        140],
+    ['t-pass',    '✓  [Perf] p95 order_validation = 231 ms',    450],
+    ['t-sub',     '─────────────────────────────────────────',   350],
+    ['t-info',    '6 passed · 0 failed · 12.4 s',               250],
+    ['t-ok',      '',                                             0],
+    ['t-ok',      '✔  QUALITY GATE — APROVADO',                 0],
+    ['t-sub',     'PR liberado para merge ✓',                  5000],
   ];
 
   const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -39,7 +41,7 @@ if (!output) {
   async function runTerminal() {
     if (reducedMotion) {
       SCRIPT.forEach(([cls, text]) => {
-        if (text) output.appendChild(makeLine(cls, text));
+        if (cls !== 't-ok' || text) output.appendChild(makeLine(cls, text));
       });
       return;
     }
@@ -60,6 +62,8 @@ if (!output) {
             output.scrollTop = output.scrollHeight;
             await sleep(26);
           }
+        } else if (text === '') {
+          // Espaço em branco instantâneo
         } else {
           el.textContent = text;
           output.scrollTop = output.scrollHeight;
