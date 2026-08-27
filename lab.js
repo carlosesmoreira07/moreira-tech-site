@@ -1,30 +1,30 @@
 ﻿/* =====================================================
-   MOREIRA TECH - lab.js
-   Lab-specific: terminal typewriter animation.
-   Loaded only on lab.html.
+   MOREIRA TECH — lab.js
+   Terminal interativo com typewriter em PT-BR.
+   Carregado exclusivamente em lab.html.
    ===================================================== */
 
-const output      = document.getElementById('terminal-output');
+const output = document.getElementById('terminal-output');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (!output) {
-  console.warn('lab.js: #terminal-output nao encontrado.');
+  console.warn('lab.js: #terminal-output não encontrado.');
 } else {
   const SCRIPT = [
     ['t-dim-cmd', 'playwright test --project=web-cross-domain', 700],
-    ['t-info',    'Analisando riscos - 6 testes / 2 workers',   350],
-    ['t-sub',     '  ----------------------------------------',  200],
-    ['t-pass',    '  [PASS]  Web / Admin - preco atualizado',    130],
-    ['t-pass',    '  [PASS]  Web / Storefront - valor propagado',130],
-    ['t-pass',    '  [PASS]  Web / Carrinho - integridade OK',   350],
-    ['t-sub',     '  ----------------------------------------',  200],
-    ['t-pass',    '  [PASS]  Seguranca / HTTP 401 confirmado',   130],
-    ['t-pass',    '  [PASS]  Performance / p95 = 412 ms',        450],
-    ['t-sub',     '  ----------------------------------------',  350],
-    ['t-info',    '  6 aprovados / 0 falhas / 12.4 s',           250],
-    ['t-ok',      '',                                              0],
-    ['t-ok',      '  Quality Gate: APROVADO',                     0],
-    ['t-sub',     '  Pull Request liberado para integracao',    5000],
+    ['t-info',    'Analisando riscos: 6 testes executando em 2 workers', 350],
+    ['t-sub',     '  ──────────────────────────────────────────', 200],
+    ['t-pass',    '  ✓  [PASS] Web / Admin: preço atualizado (R$ 199,90)', 130],
+    ['t-pass',    '  ✓  [PASS] Web / Storefront: valor propagado', 130],
+    ['t-pass',    '  ✓  [PASS] Web / Carrinho: integridade preservada', 350],
+    ['t-sub',     '  ──────────────────────────────────────────', 200],
+    ['t-pass',    '  ✓  [PASS] Segurança / Limite HTTP 401 confirmado', 130],
+    ['t-pass',    '  ✓  [PASS] Carga k6 / p95 = 412 ms (< 1000 ms)', 450],
+    ['t-sub',     '  ──────────────────────────────────────────', 350],
+    ['t-info',    '  6 aprovados · 0 falhas · Duração: 12.4 s', 250],
+    ['t-ok',      '', 0],
+    ['t-ok',      '  ✔  Quality Gate: APROVADO COM SUCESSO', 0],
+    ['t-sub',     '  Pull Request liberado para integração contínua', 5000],
   ];
 
   const sleep = ms => new Promise(r => setTimeout(r, ms));
