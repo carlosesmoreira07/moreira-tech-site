@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const portfolioDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputDir = path.join(portfolioDir, 'dist');
-const sources = ['index.html', 'lab.html', 'styles.css', 'script.js', 'lab.js', 'assets'];
+const sources = ['index.html', 'lab.html', 'styles.css', 'script.js', 'lab.js', 'assets', 'favicon.ico'];
 
 if (path.dirname(outputDir) !== portfolioDir) {
   throw new Error('Refusing to clean a directory outside portfolio/.');
