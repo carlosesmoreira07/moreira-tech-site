@@ -1,0 +1,364 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Quality Engineering Lab: Laboratorio pratico de Engenharia de Qualidade, automacao Playwright, testes de carga k6 e Quality Gates deterministas." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Quality Engineering Lab: Moreira Tech" />
+    <meta property="og:description" content="Laboratorio de referencia demonstrando automacao ponta a ponta, testes de performance, seguranca e Quality Gates em producao." />
+    <meta property="og:url" content="https://moreira-tech.com/lab.html" />
+    <meta property="og:image" content="https://moreira-tech.com/assets/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Quality Engineering Lab: Moreira Tech</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Ir para o conteudo</a>
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Moreira Tech: inicio">
+        <span class="brand-mark" aria-hidden="true">MT</span>
+        <span class="brand-name">Moreira Tech</span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" aria-label="Navegacao do Lab">
+        <a href="index.html">Inicio</a>
+        <a href="#trajetoria">Trajetoria</a>
+        <a href="#estrategia">Estrategia</a>
+        <a href="#fluxo">Fluxo</a>
+        <a href="#evidencias">Evidencias</a>
+        <a href="#recursos">Recursos</a>
+        <a href="index.html#contato" class="nav-cta">Contato</a>
+      </nav>
+    </header>
+
+    <main id="main">
+
+      <!-- 1. LAB HERO -->
+      <section class="hero" id="topo">
+        <div class="hero-bg-glow" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Engenharia de Qualidade &amp; Estrategia de Risco</p>
+          <h1>Quality Engineering Lab.<br /><em>Engenharia na pratica.</em></h1>
+          <p class="hero-sub">
+            Implementacao aberta que comprova como proteger um ecossistema transacional com automacao continua, analise de carga, seguranca de autorizacao e Quality Gates deterministas.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="https://carlosesmoreira07.github.io/quality-engineering-lab/" target="_blank" rel="noreferrer">Central de Evidencias ↗</a>
+            <a class="btn btn-ghost" href="https://github.com/carlosesmoreira07/quality-engineering-lab" target="_blank" rel="noreferrer">Repositorio GitHub ↗</a>
+            <a class="btn btn-ghost" href="index.html">Voltar para a Home</a>
+          </div>
+        </div>
+
+        <!-- Terminal de Execucao Real -->
+        <div class="terminal" aria-label="Simulacao de execucao do pipeline de qualidade" role="img">
+          <div class="terminal-bar">
+            <span class="dot red" aria-hidden="true"></span>
+            <span class="dot amber" aria-hidden="true"></span>
+            <span class="dot green" aria-hidden="true"></span>
+            <span class="terminal-title">quality-gate.yml: GitHub Actions</span>
+          </div>
+          <div class="terminal-body" id="terminal-output" aria-live="polite" aria-atomic="false"></div>
+          <div class="terminal-cursor" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- 2. TRAJETORIA / EVOLUCAO DA ABORDAGEM -->
+      <section class="section scroll-reveal" id="trajetoria">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="eyebrow">Evolucao da Disciplina</p>
+            <h2>Da execucao tardia a arquitetura de qualidade.</h2>
+            <p class="section-lead">A evolucao de equipes de alta performance parte do abandono do teste como evento final para a adocao da qualidade como disciplina continua de engenharia.</p>
+          </header>
+
+          <div class="story-grid">
+            <div class="story-card story-start">
+              <span class="story-marker">Cenario Tradicional</span>
+              <h3>Validacao Tardia e Risco Oculto</h3>
+              <p>Testes executados no fim do ciclo de desenvolvimento geram gargalos, retrabalho e entregas sob incerteza. Automacoes desconectadas do risco de negocio trazem falsa sensacao de seguranca.</p>
+            </div>
+            <div class="story-card story-mid">
+              <span class="story-marker">Maturacao Tecnica</span>
+              <h3>Engenharia e Controle Continuo</h3>
+              <p>Estruturacao de suites orientadas as jornadas financeiras criticas. Playwright e k6 acoplados ao pipeline de integracao com bloqueio determinista e rastreabilidade total.</p>
+              <ul class="story-tags">
+                <li>Mapeamento de risco de produto</li>
+                <li>Quality Gates bloqueantes em CI/CD</li>
+                <li>Performance e seguranca integradas</li>
+                <li>Rastreabilidade de evidencias tecnicas</li>
+              </ul>
+            </div>
+            <div class="story-card story-end">
+              <span class="story-marker">Estado da Arte</span>
+              <h3>Qualidade como Suporte a Decisao</h3>
+              <p>A qualidade deixa de ser barreira burocratica e passa a ser o motor de confianca da empresa: cada entrega e respaldada por provas auditaveis e metricas claras.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. ESTRATEGIA E PILARES -->
+      <section class="section scroll-reveal" id="estrategia">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="eyebrow">Pilares Estrategicos</p>
+            <h2>Pilares do Quality Engineering Lab</h2>
+            <p class="section-lead">Quatro dimensoes essenciais que sustentam a protecao de aplicacoes criticas.</p>
+          </header>
+
+          <div class="pillars">
+            <div class="pillar">
+              <span class="pillar-num">01</span>
+              <h3>Estrategia Baseada em Risco</h3>
+              <p>Priorizacao tecnica orientada ao impacto financeiro das jornadas criticas, definindo com exatidao onde testar e quais niveis de tolerancia sao aceitaveis.</p>
+            </div>
+            <div class="pillar">
+              <span class="pillar-num">02</span>
+              <h3>Quality Gates Deterministas</h3>
+              <p>Suites Web e API no Playwright com bloqueio automatico de integracao no GitHub Actions. Nenhuma falha silenciosa alcanca o branch principal.</p>
+            </div>
+            <div class="pillar">
+              <span class="pillar-num">03</span>
+              <h3>Performance e Seguranca</h3>
+              <p>Testes de carga com k6 respeitando thresholds de tempo de resposta (p95 &lt; 1000 ms) e validacao automatica de limites de autorizacao HTTP 401.</p>
+            </div>
+            <div class="pillar">
+              <span class="pillar-num">04</span>
+              <h3>Governanca Consultiva com IA</h3>
+              <p>Modelos de IA aceleram a correlacao entre demandas, riscos e cobertura de testes, preservando a decisao final sob total controle e revisao humana.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. FLUXO DE QUALIDADE / TIMELINE -->
+      <section class="section scroll-reveal" id="fluxo">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="eyebrow">Metodologia Operacional</p>
+            <h2>Risco → Controle → Evidencia → Decisao</h2>
+            <p class="section-lead">O ciclo pelo qual todo incremento de codigo passa antes de ser liberado para producao.</p>
+          </header>
+
+          <div class="timeline-track">
+            <div class="timeline-node">
+              <span class="timeline-node-num">ETAPA 01</span>
+              <h3>Risco Identificado</h3>
+              <p>Mapeamento de jornadas com impacto direto em receita, dados sensiveis ou integridade transacional.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="timeline-node-num">ETAPA 02</span>
+              <h3>Controle Automatizado</h3>
+              <p>Execucao de suites deterministas de ponta a ponta, simulando comportamentos reais de usuarios e sistemas.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="timeline-node-num">ETAPA 03</span>
+              <h3>Evidencia Gerada</h3>
+              <p>Producao de relatorios auditaveis, metricas de execucao, logs de seguranca e analise de performance em tempo real.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="timeline-node-num">ETAPA 04</span>
+              <h3>Decisao Segura</h3>
+              <p>Aprovacao ou bloqueio da entrega com base em dados concretos, garantindo previsibilidade para lideranca e engenharia.</p>
+            </div>
+          </div>
+
+          <!-- Frase Estrategica Unica -->
+          <div class="quote-banner">
+            <blockquote>"IA acelera a analise. Engenharia decide."</blockquote>
+            <span class="quote-badge">Principio Fundamental Moreira Tech</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. EVIDENCIAS REAIS -->
+      <section class="section scroll-reveal" id="evidencias">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="eyebrow">Comprovacao Tecnica</p>
+            <h2>Evidencias Reais e Auditaveis</h2>
+            <p class="section-lead">Nenhuma mudanca e aceita com base em suposicoes. Cada execucao do pipeline produz evidencias tecnicas verificaveis.</p>
+          </header>
+
+          <div class="evidence-grid">
+            <!-- Card 1: Quality Gate no CI -->
+            <article class="ev-card ev-gate">
+              <div class="ev-head">
+                <span>GitHub Actions</span>
+                <strong class="tag-green">Quality Gate: PASS</strong>
+              </div>
+              <button class="img-btn ev-img-btn" type="button" data-modal-src="assets/evidence/quality-gate.png" data-modal-alt="Quality Gate aprovado no GitHub Actions apos verificacoes funcionais, performance e seguranca">
+                <img src="assets/evidence/quality-gate.png" alt="Quality Gate aprovado no GitHub Actions apos verificacoes funcionais, performance e seguranca" width="1265" height="712" loading="lazy" decoding="async" />
+                <span class="zoom-hint">Ampliar ↗</span>
+              </button>
+              <p>Verificacao automatica bloqueando integracoes com falhas funcionais, de carga ou limites de autorizacao.</p>
+            </article>
+
+            <!-- Card 2: Performance Thresholds k6 -->
+            <article class="ev-card ev-metrics">
+              <div class="ev-head">
+                <span>k6 OSS</span>
+                <strong>Thresholds de Carga</strong>
+              </div>
+              <ul class="metric-list" aria-label="Resultados de performance do k6">
+                <li><span>product_view p95</span><strong>&lt; 1000 ms</strong></li>
+                <li><span>order_validation p95</span><strong>&lt; 500 ms</strong></li>
+                <li><span>http_req_failed</span><strong class="tag-green">rate = 0</strong></li>
+                <li><span>checks bem-sucedidos</span><strong class="tag-green">100 %</strong></li>
+              </ul>
+              <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/quality/performance/scenarios/smoke.js" target="_blank" rel="noreferrer" class="text-link">Ver cenario k6 no GitHub ↗</a>
+            </article>
+
+            <!-- Card 3: Seguranca de Autorizacao -->
+            <article class="ev-card ev-security">
+              <div class="ev-head">
+                <span>Seguranca de API</span>
+                <strong>Limites de Autorizacao</strong>
+              </div>
+              <div class="security-block">
+                <code>anonymous → admin mutation</code>
+                <strong class="tag-green">HTTP 401: Esperado</strong>
+                <small>O Quality Gate reprova imediatamente caso uma tentativa de mutacao anonima nao seja rejeitada pelo servidor.</small>
+              </div>
+              <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/quality/tests/api/security/authorization-boundaries.spec.ts" target="_blank" rel="noreferrer" class="text-link">Ver teste de seguranca ↗</a>
+            </article>
+          </div>
+
+          <div class="ev-banner">
+            <div>
+              <h3>Central de Evidencias em Tempo Real</h3>
+              <p>Acesse relatorios em PDF, historico completo de execucoes e artefatos tecnicos publicados no GitHub Pages.</p>
+            </div>
+            <a class="btn btn-primary" href="https://carlosesmoreira07.github.io/quality-engineering-lab/" target="_blank" rel="noreferrer">Acessar Central de Evidencias ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. CARDS CLICAVEIS DE RECURSOS -->
+      <section class="section scroll-reveal" id="recursos">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="eyebrow">Ecossistema do Projeto</p>
+            <h2>Recursos e Documentacao</h2>
+            <p class="section-lead">Acesse todos os artefatos tecnicos, repositorios e portais do Quality Engineering Lab.</p>
+          </header>
+
+          <div class="resource-grid">
+            <a class="resource-card" href="https://carlosesmoreira07.github.io/quality-engineering-lab/" target="_blank" rel="noreferrer">
+              <span class="resource-tag">Portal Publico</span>
+              <strong>Central de Evidencias ↗</strong>
+              <p>Dashboard de execucoes, metricas e relatorios tecnicos de auditoria.</p>
+            </a>
+
+            <a class="resource-card" href="https://github.com/carlosesmoreira07/quality-engineering-lab" target="_blank" rel="noreferrer">
+              <span class="resource-tag">Codigo Aberto</span>
+              <strong>Repositorio no GitHub ↗</strong>
+              <p>Suites de teste Playwright, cenarios k6 e workflows do GitHub Actions.</p>
+            </a>
+
+            <a class="resource-card" href="https://github.com/carlosesmoreira07/quality-engineering-lab/wiki" target="_blank" rel="noreferrer">
+              <span class="resource-tag">Base de Conhecimento</span>
+              <strong>Wiki do Projeto ↗</strong>
+              <p>Guias de arquitetura, decisoes tecnicas (ADRs) e matrizes de qualidade.</p>
+            </a>
+
+            <a class="resource-card" href="https://moreira-tech.atlassian.net/jira/software/projects/QEL/boards/1" target="_blank" rel="noreferrer">
+              <span class="resource-tag">Gestao de Demandas</span>
+              <strong>Jira Board (QEL) ↗</strong>
+              <p>Acompanhamento de entregas, criterios de aceite e rastreabilidade de valor.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FECHAMENTO E CONTATO -->
+      <section class="section scroll-reveal" id="fechamento">
+        <div class="section-inner contact-inner">
+          <div class="contact-copy">
+            <p class="eyebrow">Moreira Tech</p>
+            <h2>Leve Engenharia de Qualidade para a sua organizacao.</h2>
+            <p>
+              Estruture processos confiaveis, acelere entregas e elimine o retrabalho tardio atraves de consultoria tecnica especializada.
+            </p>
+            <div class="contact-channels">
+              <a class="channel-box wa-box" href="https://wa.me/5514998184411" target="_blank" rel="noreferrer">
+                <div class="channel-info">
+                  <span>WhatsApp Direto</span>
+                  <strong>(14) 99818-4411</strong>
+                </div>
+                <span class="channel-arrow">Conversar ↗</span>
+              </a>
+              <a class="channel-box" href="mailto:contato@moreira-tech.com">
+                <div class="channel-info">
+                  <span>Correio Eletronico</span>
+                  <strong>contato@moreira-tech.com</strong>
+                </div>
+                <span class="channel-arrow">Enviar ↗</span>
+              </a>
+              <a class="channel-box" href="https://www.linkedin.com/in/carlos-moreira-qa-lead/" target="_blank" rel="noreferrer">
+                <div class="channel-info">
+                  <span>Perfil Profissional</span>
+                  <strong>LinkedIn / Carlos Moreira</strong>
+                </div>
+                <span class="channel-arrow">Conectar ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-links">
+            <a class="clink" href="index.html">
+              <span>Pagina Inicial</span>
+              <strong>Home Institucional ↗</strong>
+            </a>
+            <a class="clink" href="https://carlosesmoreira07.github.io/quality-engineering-lab/" target="_blank" rel="noreferrer">
+              <span>Central de Evidencias</span>
+              <strong>Execucoes em producao ↗</strong>
+            </a>
+            <a class="clink" href="https://github.com/carlosesmoreira07/quality-engineering-lab" target="_blank" rel="noreferrer">
+              <span>GitHub</span>
+              <strong>Suites de automacao ↗</strong>
+            </a>
+            <a class="clink" href="https://github.com/carlosesmoreira07/quality-engineering-lab/wiki" target="_blank" rel="noreferrer">
+              <span>Wiki</span>
+              <strong>Documentacao tecnica ↗</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span><strong>Moreira Tech</strong>: Quality Engineering Lab. Copyright &copy; 2026 Moreira Tech</span>
+        <div class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="https://carlosesmoreira07.github.io/quality-engineering-lab/" target="_blank" rel="noreferrer">Evidencias</a>
+          <a href="https://github.com/carlosesmoreira07/quality-engineering-lab" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/wiki" target="_blank" rel="noreferrer">Wiki</a>
+          <a href="https://www.linkedin.com/in/carlos-moreira-qa-lead/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:contato@moreira-tech.com">Contato</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODAL DE EVIDENCIA -->
+    <dialog class="img-dialog" aria-label="Evidencia ampliada">
+      <button class="dialog-close" type="button" aria-label="Fechar">x</button>
+      <img alt="Evidencia de qualidade selecionada" />
+    </dialog>
+
+    <script src="script.js"></script>
+    <script src="lab.js"></script>
+  </body>
+</html>
