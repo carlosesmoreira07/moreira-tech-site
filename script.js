@@ -1,7 +1,7 @@
 ﻿/* =====================================================
    MOREIRA TECH — script.js
    Comportamento compartilhado: navegação, modal, scroll-reveal,
-   painel de qualidade e simulação de execução interativa.
+   painel de qualidade, simulação de execução e cópia de e-mail.
    ===================================================== */
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -83,16 +83,16 @@ if (menuBtn && nav) {
       },
       {
         badge: 'ETAPA 02 / STOREFRONT',
-        title: 'Sincronização em Tempo Real na Loja',
+        title: 'Sincronização em Tempo Real na Vitrine',
         code: 'await page.goto("/storefront"); expect(await page.locator(".price")).toHaveText("R$ 199,90");',
         detail: 'Vitrine reflete o novo valor instantaneamente sem cache desatualizado.',
         status: 'CHECK PASS · PROPAGAÇÃO CONFIRMADA'
       },
       {
         badge: 'ETAPA 03 / CARRINHO & CHECKOUT',
-        title: 'Validação de Integridade no Carrinho',
+        title: 'Validação de Integridade no Carrinho Final',
         code: 'await page.click(".btn-buy"); expect(await page.locator(".cart-total")).toHaveText("R$ 199,90");',
-        detail: 'Total do pedido preservado com precisão centesimal durante todo o checkout.',
+        detail: 'Total do pedido preservado com precisão centesimal no carrinho final.',
         status: 'QUALITY GATE PASS · MERGE APROVADO'
       }
     ];
@@ -130,7 +130,7 @@ if (menuBtn && nav) {
       timer = setInterval(() => {
         const next = (currentStep + 1) % stages.length;
         activateStep(next);
-      }, 3500);
+      }, 3600);
     }
 
     stepItems.forEach((btn, idx) => {
@@ -150,7 +150,42 @@ if (menuBtn && nav) {
   }
 }
 
-// ── 5. MODAL DE EVIDÊNCIA EM ALTA RESOLUÇÃO ────────────
+// ── 5. CÓPIA DE E-MAIL COM FEEDBACK VISUAL ─────────────
+{
+  const copyButtons = document.querySelectorAll('.copy-email-btn');
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const email = btn.dataset.email || 'contato@moreira-tech.com';
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          const input = document.createElement('input');
+          input.value = email;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand('copy');
+          document.body.removeChild(input);
+        }
+      } catch (err) {
+        console.warn('Erro ao copiar:', err);
+      }
+
+      const actionText = btn.querySelector('.email-action-text');
+      if (actionText) {
+        const originalText = actionText.innerHTML;
+        actionText.innerHTML = 'Copiado! ✓';
+        actionText.classList.add('copied');
+        setTimeout(() => {
+          actionText.innerHTML = originalText;
+          actionText.classList.remove('copied');
+        }, 2200);
+      }
+    });
+  });
+}
+
+// ── 6. MODAL DE EVIDÊNCIA EM ALTA RESOLUÇÃO ────────────
 {
   const dialog    = document.querySelector('.img-dialog');
   const dialogImg = dialog ? dialog.querySelector('img') : null;
