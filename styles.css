@@ -88,13 +88,33 @@ dialog { padding: 0; border: none; background: transparent; }
 nav {
   display: flex;
   align-items: center;
-  gap: 1.8rem;
+  gap: 1.2rem;
 }
 nav a {
   color: var(--muted); font-size: .84rem; font-weight: 550;
   transition: color .15s ease;
 }
 nav a:hover, nav a:focus-visible { color: var(--ink); }
+.nav-link {
+  color: var(--muted);
+  font-size: .84rem;
+  font-weight: 600;
+  padding: .38rem .75rem;
+  border-radius: .35rem;
+  border: 1px solid transparent;
+  transition: color .15s ease, background .15s ease, border-color .15s ease;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-link:hover {
+  color: var(--ink);
+  background: var(--surface-2);
+}
+.nav-link.active {
+  color: var(--mint);
+  background: var(--mint-glow);
+  border: 1px solid rgba(74, 250, 138, 0.25);
+}
 .nav-cta {
   padding: .45rem 1.1rem;
   border: 1px solid var(--line-light);
@@ -243,12 +263,19 @@ h1 em { color: var(--mint); font-style: normal; }
   font-size: 0.74rem;
   opacity: 0.25;
   transform: translateX(-4px);
-  transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.4s ease, transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 .badge-pillar.visible {
   opacity: 1;
   transform: translateX(0);
   border-color: rgba(74, 250, 138, 0.3);
+}
+.badge-pillar.visible:hover {
+  background: var(--surface-3);
+  border-color: var(--mint);
+  transform: translateY(-2px);
 }
 .badge-pillar span { color: #c4d4ca; }
 .badge-pillar b { color: var(--mint); font-weight: 650; }
@@ -587,6 +614,8 @@ h1 em { color: var(--mint); font-style: normal; }
   flex-direction: column;
   gap: 0.85rem;
   position: relative;
+  text-decoration: none;
+  cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 .story-card:hover {
@@ -613,6 +642,16 @@ h1 em { color: var(--mint); font-style: normal; }
 .story-end   .story-marker { color: var(--mint); }
 .story-card h3 { font-size: 1.15rem; font-weight: 750; color: var(--ink); }
 .story-card > p { color: var(--muted); font-size: .86rem; line-height: 1.6; }
+.story-action {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--mint);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
 .story-tags {
   display: flex; flex-direction: column; gap: .35rem;
   margin-top: .25rem;
@@ -642,6 +681,10 @@ h1 em { color: var(--mint); font-style: normal; }
 .pillar {
   padding: 2rem 1.5rem;
   background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  cursor: pointer;
   transition: background .2s ease, transform .2s ease;
 }
 .pillar:hover {
@@ -658,6 +701,16 @@ h1 em { color: var(--mint); font-style: normal; }
 }
 .pillar h3 { font-size: 1.12rem; font-weight: 750; margin-bottom: .65rem; color: var(--ink); }
 .pillar p  { color: var(--muted); font-size: .84rem; line-height: 1.55; }
+.pillar-action {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--mint);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
 
 /* =====================================================
    QUALITY FLOW / TIMELINE (LAB) — COM HOVER INTERATIVO
@@ -678,8 +731,9 @@ h1 em { color: var(--mint); font-style: normal; }
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
+  text-decoration: none;
+  cursor: pointer;
   transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
-  cursor: default;
   position: relative;
 }
 .timeline-node:hover {
@@ -704,6 +758,16 @@ h1 em { color: var(--mint); font-style: normal; }
   color: var(--muted);
   font-size: 0.84rem;
   line-height: 1.55;
+}
+.timeline-action {
+  margin-top: auto;
+  padding-top: 0.65rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--mint);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 /* =====================================================
