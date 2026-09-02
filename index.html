@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
@@ -34,9 +34,10 @@
           <span></span><span></span><span></span>
         </button>
         <nav id="site-nav" aria-label="Navegação principal">
-          <a href="#servicos">Serviços</a>
-          <a href="lab.html">Laboratório</a>
-          <a href="#case-lab">Evidências</a>
+          <a href="#topo" class="nav-link active">Início</a>
+          <a href="#servicos" class="nav-link">Serviços</a>
+          <a href="lab.html" class="nav-link">Laboratório</a>
+          <a href="#case-lab" class="nav-link">Evidências</a>
           <a href="#contato" class="nav-cta">Contato</a>
         </nav>
       </div>
@@ -67,26 +68,26 @@
             <strong>ATIVO</strong>
           </div>
           <div class="badge-pillars">
-            <div class="badge-pillar">
+            <a class="badge-pillar" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/quality-strategy.md" target="_blank" rel="noreferrer">
               <span>01 / Estratégia &amp; Risco</span>
-              <b>Jornadas Críticas</b>
-            </div>
-            <div class="badge-pillar">
+              <b>Jornadas Críticas ↗</b>
+            </a>
+            <a class="badge-pillar" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/.github/workflows/quality-gate.yml" target="_blank" rel="noreferrer">
               <span>02 / Automação &amp; CI/CD</span>
-              <b>Quality Gates</b>
-            </div>
-            <div class="badge-pillar">
+              <b>Quality Gates ↗</b>
+            </a>
+            <a class="badge-pillar" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/quality/performance/scenarios/smoke.js" target="_blank" rel="noreferrer">
               <span>03 / Performance &amp; Carga</span>
-              <b>p95 &lt; 1000 ms</b>
-            </div>
-            <div class="badge-pillar">
+              <b>p95 &lt; 1000 ms ↗</b>
+            </a>
+            <a class="badge-pillar" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/quality/tests/api/security/authorization-boundaries.spec.ts" target="_blank" rel="noreferrer">
               <span>04 / Segurança de API</span>
-              <b>HTTP 401 Validado</b>
-            </div>
-            <div class="badge-pillar">
+              <b>HTTP 401 Validado ↗</b>
+            </a>
+            <a class="badge-pillar" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/ai-quality-engineering.md" target="_blank" rel="noreferrer">
               <span>05 / Governança &amp; Decisão</span>
-              <b>Revisão Humana</b>
-            </div>
+              <b>Revisão Humana ↗</b>
+            </a>
           </div>
           <div class="badge-status">
             OPERAÇÃO EM CONFORMIDADE · MERGE SEGURO
@@ -151,16 +152,17 @@
               </div>
               <div>
                 <dt>Controle</dt>
-                <dd>Playwright altera o valor no Admin e valida o reflexo no checkout da Storefront em tempo real.</dd>
+                <dd>Playwright altera o valor no Admin e valida o reflexo no checkout da Storefront em tempo real. <a class="text-link" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/quality/tests/web/cross-domain/admin-price.spec.ts" target="_blank" rel="noreferrer">Ver teste no GitHub ↗</a></dd>
               </div>
               <div>
                 <dt>Gate</dt>
-                <dd>Pull Request bloqueado automaticamente se houver qualquer divergência centesimal.</dd>
+                <dd>Pull Request bloqueado automaticamente se houver qualquer divergência centesimal. <a class="text-link" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/.github/workflows/quality-gate.yml" target="_blank" rel="noreferrer">Ver Quality Gate ↗</a></dd>
               </div>
             </dl>
             <div class="case-links">
               <a class="btn btn-primary" href="lab.html">Conhecer o Lab Completo</a>
               <a class="btn btn-ghost" href="https://carlosesmoreira07.github.io/quality-engineering-lab/" target="_blank" rel="noreferrer">Central de Evidências ↗</a>
+              <a class="btn btn-ghost" href="https://github.com/carlosesmoreira07/quality-engineering-lab" target="_blank" rel="noreferrer">Repositório GitHub ↗</a>
             </div>
           </div>
 

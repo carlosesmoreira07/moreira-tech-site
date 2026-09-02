@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
@@ -34,12 +34,12 @@
           <span></span><span></span><span></span>
         </button>
         <nav id="site-nav" aria-label="Navegação do Lab">
-          <a href="index.html">Início</a>
-          <a href="#trajetoria">Trajetória</a>
-          <a href="#estrategia">Estratégia</a>
-          <a href="#fluxo">Fluxo</a>
-          <a href="#evidencias">Evidências</a>
-          <a href="#recursos">Recursos</a>
+          <a href="index.html" class="nav-link">Início</a>
+          <a href="#trajetoria" class="nav-link">Trajetória</a>
+          <a href="#estrategia" class="nav-link">Estratégia</a>
+          <a href="#fluxo" class="nav-link">Fluxo</a>
+          <a href="#evidencias" class="nav-link">Evidências</a>
+          <a href="#recursos" class="nav-link">Recursos</a>
           <a href="index.html#contato" class="nav-cta">Contato</a>
         </nav>
       </div>
@@ -69,7 +69,7 @@
             <span class="dot red" aria-hidden="true"></span>
             <span class="dot amber" aria-hidden="true"></span>
             <span class="dot green" aria-hidden="true"></span>
-            <span class="terminal-title">quality-gate.yml: GitHub Actions</span>
+            <a class="terminal-title" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/.github/workflows/quality-gate.yml" target="_blank" rel="noreferrer">quality-gate.yml: GitHub Actions ↗</a>
           </div>
           <div class="terminal-body" id="terminal-output" aria-live="polite" aria-atomic="false"></div>
           <div class="terminal-cursor" aria-hidden="true"></div>
@@ -86,12 +86,13 @@
           </header>
 
           <div class="story-grid">
-            <div class="story-card story-start">
+            <a class="story-card story-start" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/adr/0001-sut-baseline-strategy.md" target="_blank" rel="noreferrer">
               <span class="story-marker">Cenário Tradicional</span>
               <h3>Validação Tardia e Risco Oculto</h3>
               <p>Testes executados no fim do ciclo de desenvolvimento geram gargalos, retrabalho e entregas sob incerteza. Automações desconectadas do risco de negócio trazem falsa sensação de segurança.</p>
-            </div>
-            <div class="story-card story-mid">
+              <span class="story-action">Ver ADR 0001 no GitHub ↗</span>
+            </a>
+            <a class="story-card story-mid" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/adr/0002-automation-architecture.md" target="_blank" rel="noreferrer">
               <span class="story-marker">Maturação Técnica</span>
               <h3>Engenharia e Controle Contínuo</h3>
               <p>Estruturação de suítes orientadas às jornadas financeiras críticas. Playwright e k6 acoplados ao pipeline de integração com bloqueio determinístico e rastreabilidade total.</p>
@@ -101,12 +102,14 @@
                 <li>Performance e segurança integradas</li>
                 <li>Rastreabilidade de evidências técnicas</li>
               </ul>
-            </div>
-            <div class="story-card story-end">
+              <span class="story-action">Ver ADR 0002 no GitHub ↗</span>
+            </a>
+            <a class="story-card story-end" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/quality-strategy.md" target="_blank" rel="noreferrer">
               <span class="story-marker">Estado da Arte</span>
               <h3>Qualidade como Suporte à Decisão</h3>
               <p>A qualidade deixa de ser barreira burocrática e passa a ser o motor de confiança da empresa: cada entrega é respaldada por provas auditáveis e métricas claras.</p>
-            </div>
+              <span class="story-action">Ver Estratégia de Qualidade ↗</span>
+            </a>
           </div>
         </div>
       </section>
@@ -121,26 +124,30 @@
           </header>
 
           <div class="pillars">
-            <div class="pillar">
+            <a class="pillar" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/quality-strategy.md" target="_blank" rel="noreferrer">
               <span class="pillar-num">01</span>
               <h3>Estratégia Baseada em Risco</h3>
               <p>Priorização técnica orientada ao impacto financeiro das jornadas críticas, definindo com exatidão onde testar e quais níveis de tolerância são aceitáveis.</p>
-            </div>
-            <div class="pillar">
+              <span class="pillar-action">Explorar no GitHub ↗</span>
+            </a>
+            <a class="pillar" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/.github/workflows/quality-gate.yml" target="_blank" rel="noreferrer">
               <span class="pillar-num">02</span>
               <h3>Quality Gates Determinísticos</h3>
               <p>Suítes Web e API no Playwright com bloqueio automático de integração no GitHub Actions. Nenhuma falha silenciosa alcança o branch principal.</p>
-            </div>
-            <div class="pillar">
+              <span class="pillar-action">Explorar no GitHub ↗</span>
+            </a>
+            <a class="pillar" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/quality/performance/scenarios/smoke.js" target="_blank" rel="noreferrer">
               <span class="pillar-num">03</span>
               <h3>Performance e Segurança</h3>
               <p>Testes de carga com k6 respeitando thresholds de tempo de resposta (p95 &lt; 1000 ms) e validação automática de limites de autorização HTTP 401.</p>
-            </div>
-            <div class="pillar">
+              <span class="pillar-action">Explorar no GitHub ↗</span>
+            </a>
+            <a class="pillar" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/ai-quality-engineering.md" target="_blank" rel="noreferrer">
               <span class="pillar-num">04</span>
               <h3>Governança Consultiva com IA</h3>
               <p>Modelos de IA aceleram a correlação entre demandas, riscos e cobertura de testes, preservando a decisão final sob total controle e revisão humana.</p>
-            </div>
+              <span class="pillar-action">Explorar no GitHub ↗</span>
+            </a>
           </div>
         </div>
       </section>
@@ -155,26 +162,30 @@
           </header>
 
           <div class="timeline-track">
-            <div class="timeline-node">
+            <a class="timeline-node" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/quality-strategy.md#matriz-de-riscos-do-produto" target="_blank" rel="noreferrer">
               <span class="timeline-node-num">ETAPA 01</span>
               <h3>Risco Identificado</h3>
               <p>Mapeamento de jornadas com impacto direto em receita, dados sensíveis ou integridade transacional.</p>
-            </div>
-            <div class="timeline-node">
+              <span class="timeline-action">Ver matriz de risco ↗</span>
+            </a>
+            <a class="timeline-node" href="https://github.com/carlosesmoreira07/quality-engineering-lab/tree/main/quality/tests" target="_blank" rel="noreferrer">
               <span class="timeline-node-num">ETAPA 02</span>
               <h3>Controle Automatizado</h3>
               <p>Execução de suítes determinísticas de ponta a ponta, simulando comportamentos reais de usuários e sistemas.</p>
-            </div>
-            <div class="timeline-node">
+              <span class="timeline-action">Ver suítes de teste ↗</span>
+            </a>
+            <a class="timeline-node" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/adr/0009-quality-evidence-hub-and-nightly-validation.md" target="_blank" rel="noreferrer">
               <span class="timeline-node-num">ETAPA 03</span>
               <h3>Evidência Gerada</h3>
               <p>Produção de relatórios auditáveis, métricas de execução, logs de segurança e análise de performance em tempo real.</p>
-            </div>
-            <div class="timeline-node">
+              <span class="timeline-action">Ver evidência e ADR ↗</span>
+            </a>
+            <a class="timeline-node" href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/docs/adr/0003-ci-quality-gates.md" target="_blank" rel="noreferrer">
               <span class="timeline-node-num">ETAPA 04</span>
               <h3>Decisão Segura</h3>
               <p>Aprovação ou bloqueio da entrega com base em dados concretos, garantindo previsibilidade para liderança e engenharia.</p>
-            </div>
+              <span class="timeline-action">Ver Quality Gate CI ↗</span>
+            </a>
           </div>
 
           <!-- Frase Estratégica Única no Site -->
@@ -206,6 +217,7 @@
                 <span class="zoom-hint">Ampliar ↗</span>
               </button>
               <p>Verificação automática bloqueando integrações com falhas funcionais, de carga ou limites de autorização.</p>
+              <a href="https://github.com/carlosesmoreira07/quality-engineering-lab/blob/main/.github/workflows/quality-gate.yml" target="_blank" rel="noreferrer" class="text-link">Ver workflow no GitHub ↗</a>
             </article>
 
             <!-- Card 2: Performance Thresholds k6 -->
@@ -276,10 +288,10 @@
               <p>Guias de arquitetura, decisões técnicas (ADRs) e matrizes de qualidade.</p>
             </a>
 
-            <a class="resource-card" href="https://moreira-tech.atlassian.net/jira/software/projects/QEL/boards/1" target="_blank" rel="noreferrer">
-              <span class="resource-tag">Gestão de Demandas</span>
-              <strong>Jira Board (QEL) ↗</strong>
-              <p>Acompanhamento de entregas, critérios de aceite e rastreabilidade de valor.</p>
+            <a class="resource-card" href="https://github.com/carlosesmoreira07/quality-engineering-lab/tree/main/docs/adr" target="_blank" rel="noreferrer">
+              <span class="resource-tag">Decisões Técnicas</span>
+              <strong>Arquitetura &amp; ADRs ↗</strong>
+              <p>Registros formais de decisões arquiteturais, critérios de qualidade e governança técnica.</p>
             </a>
           </div>
         </div>
