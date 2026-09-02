@@ -271,3 +271,10 @@ initQualityGateTerminal();
     dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
   }
 }
+
+// ── 8. BLOQUEIO DE ATALHO DE CÓPIA (CTRL+C) ───────────
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C')) {
+    e.preventDefault();
+  }
+});
