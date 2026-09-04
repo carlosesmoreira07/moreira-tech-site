@@ -143,21 +143,21 @@ initQualityGateTerminal();
 
     const stages = [
       {
-        badge: 'ETAPA 01 / ADMIN',
+        badge: 'ETAPA 1 / ADMIN',
         title: 'Atualização de Preço no Painel Admin',
         code: 'await page.fill("#product-price", "199.90"); await page.click("#save-product");',
         detail: 'Preço alterado com sucesso para R$ 199,90 no catálogo mestre.',
         status: 'STATUS 200 OK · MUTATION CONCLUÍDA'
       },
       {
-        badge: 'ETAPA 02 / STOREFRONT',
+        badge: 'ETAPA 2 / STOREFRONT',
         title: 'Sincronização em Tempo Real na Vitrine',
         code: 'await page.goto("/storefront"); expect(await page.locator(".price")).toHaveText("R$ 199,90");',
         detail: 'Vitrine reflete o novo valor instantaneamente sem cache desatualizado.',
         status: 'CHECK PASS · PROPAGAÇÃO CONFIRMADA'
       },
       {
-        badge: 'ETAPA 03 / CARRINHO & CHECKOUT',
+        badge: 'ETAPA 3 / CARRINHO & CHECKOUT',
         title: 'Validação de Integridade no Carrinho Final',
         code: 'await page.click(".btn-buy"); expect(await page.locator(".cart-total")).toHaveText("R$ 199,90");',
         detail: 'Total do pedido preservado com precisão centesimal no carrinho final.',
@@ -261,13 +261,47 @@ initQualityGateTerminal();
 
   if (dialog && dialogImg) {
     document.querySelectorAll('[data-modal-src]').forEach(btn => {
-      btn.addEventListener('click', () => {
+      const openModal = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         dialogImg.src = btn.dataset.modalSrc;
         dialogImg.alt = btn.dataset.modalAlt || 'Evidência técnica selecionada';
         dialog.showModal();
+      };
+      btn.addEventListener('click', openModal);
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          openModal(e);
+        }
       });
     });
     if (closeBtn) closeBtn.addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
   }
 }
+
+// ── 8. BLOQUEIO DE ATALHO DE CÓPIA (CTRL+C) ───────────
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C')) {
+    e.preventDefault();
+  }
+});
+
+// ── 9. BOTÃO FLUTUANTE DE VOLTAR AO TOPO ───────────────
+{
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 350) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+}
+
